@@ -1,0 +1,79 @@
+    <main class="content">
+      <div class="page-header-band">
+        <!-- ---------- driver header ---------- -->
+        <div id="dvHeadMain">
+          <div class="page-head dv-head">
+            <div class="dv-id">
+              <button type="button" class="dv-back" id="dvBackList" title="Back to drivers" aria-label="Back to drivers"><i data-lucide="arrow-left"></i></button>
+              <span class="dv-avatar" id="dvAvatar">WF</span>
+              <div class="page-head-text">
+                <div class="page-title-row">
+                  <h1 class="page-title" id="dvName">William Falin</h1>
+                  <span class="context-chip" id="dvChipType">Company driver</span>
+                  <span class="context-chip" id="dvChipId">DRV-2214</span>
+                </div>
+                <p class="page-subtitle" id="dvSub"></p>
+              </div>
+            </div>
+            <div class="page-head-actions dv-actions">
+              <button type="button" class="dv-pill" id="dvStatusBtn" aria-haspopup="menu"><span class="sdot green" id="dvStatusDot"></span><span id="dvStatusTxt">Active</span><i data-lucide="chevron-down"></i></button>
+              <button type="button" class="btn-outline" data-size="sm" id="dvMsgBtn"><i data-lucide="message-square-text"></i> ProChat</button>
+              <button type="button" class="btn-primary" data-size="sm" id="dvEditBtn"><i data-lucide="pencil"></i> Edit account</button>
+            </div>
+          </div>
+          <div class="dv-tabs-wrap">
+            <div class="u-tabs dv-tabs" data-tabs="dv" role="tablist">
+              <button class="u-tab active" type="button" data-tab="account"><i data-lucide="layout-dashboard"></i> Account</button>
+              <button class="u-tab" type="button" data-tab="occupancy"><i data-lucide="calendar-range"></i> Occupancy</button>
+              <button class="u-tab" type="button" data-tab="loads"><i data-lucide="package"></i> Loads</button>
+              <button class="u-tab" type="button" data-tab="safety"><i data-lucide="shield-check"></i> Safety &amp; compliance</button>
+              <button class="u-tab" type="button" data-tab="documents"><i data-lucide="files"></i> Documents</button>
+              <button class="u-tab" type="button" data-tab="events"><i data-lucide="calendar-days"></i> Events</button>
+              <button class="u-tab" type="button" data-tab="onboarding"><i data-lucide="list-checks"></i> Onboarding</button>
+              <button class="u-tab" type="button" data-tab="statemap"><i data-lucide="map"></i> State map</button>
+              <button class="u-tab" type="button" data-tab="mileage"><i data-lucide="route"></i> Mileage &amp; rates</button>
+              <button class="u-tab" type="button" data-tab="leave"><i data-lucide="palmtree"></i> Leave</button>
+              <button class="u-tab" type="button" data-tab="info"><i data-lucide="id-card"></i> Driver info</button>
+            </div>
+          </div>
+        </div>
+        <!-- ---------- sub-screen header (onboarding settings / stage / print) ---------- -->
+        <div id="dvHeadScreen" hidden>
+          <div class="page-head">
+            <div class="dv-id">
+              <button type="button" class="dv-back" id="dvScreenBack" aria-label="Back"><i data-lucide="arrow-left"></i></button>
+              <div class="page-head-text">
+                <div class="page-title-row"><h1 class="page-title" id="dvScrTitle"></h1><span class="context-chip" id="dvScrChip" hidden></span></div>
+                <p class="page-subtitle" id="dvScrSub"></p>
+              </div>
+            </div>
+            <div class="page-head-actions" id="dvScrActions"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-scroll" id="dvScroll">
+      <div class="content-inner">
+
+        <section id="dvMain">
+          <section class="u-panel" data-tabs="dv" data-panel="account" id="pAccount"></section>
+          <section class="u-panel" data-tabs="dv" data-panel="occupancy" id="pOccupancy" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="loads" id="pLoads" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="safety" id="pSafety" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="documents" id="pDocuments" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="events" id="pEvents" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="onboarding" id="pOnboarding" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="statemap" id="pStatemap" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="mileage" id="pMileage" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="leave" id="pLeave" hidden></section>
+          <section class="u-panel" data-tabs="dv" data-panel="info" id="pInfo" hidden></section>
+        </section>
+
+        <!-- sub-screens -->
+        <section id="dvScrSettings" hidden></section>
+        <section id="dvScrStage" hidden></section>
+        <section id="dvScrPrint" hidden></section>
+
+      </div>
+      </div>
+    </main>

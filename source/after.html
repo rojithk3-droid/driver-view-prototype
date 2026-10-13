@@ -1,0 +1,145 @@
+
+  <!-- ============ Terminate ============ -->
+  <div class="dialog-overlay" id="dlgTerminate" hidden>
+    <div class="dialog-panel" role="dialog" aria-modal="true" aria-labelledby="trTitle">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="trTitle">Terminate driver</h2>
+        <p class="dialog-desc">William will lose dispatch access on the last day you pick. This can be reversed from the status menu.</p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body">
+        <div class="dialog-row">
+          <div class="field" style="margin:0"><label class="field-label" for="trDate">Last day <span class="required">*</span></label><input type="date" class="text-input" id="trDate"></div>
+          <div class="field" style="margin:0"><label class="field-label" for="trCode">Reason</label><select class="select-input" id="trCode"></select></div>
+        </div>
+        <div class="dialog-field" style="margin-bottom:0"><label class="field-label" for="trReason">Notes</label><textarea class="text-input dialog-textarea" id="trReason" placeholder="Anything HR should know"></textarea></div>
+      </div>
+      <div class="dialog-foot"><div class="dialog-foot-actions"><button class="btn-outline" type="button" data-dialog-close>Cancel</button><button class="btn-primary" type="button" id="trSave">Terminate</button></div></div>
+    </div>
+  </div>
+
+  <!-- ============ Attach trailer ============ -->
+  <div class="dialog-overlay" id="dlgAttach" hidden>
+    <div class="dialog-panel dialog-wide" role="dialog" aria-modal="true" aria-labelledby="atTitle">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="atTitle">Attach trailer</h2>
+        <p class="dialog-desc">Hook a trailer to William so it follows him on every dispatch.</p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body">
+        <div class="dialog-row" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);margin-bottom:0">
+          <div class="field" style="margin:0"><label class="field-label" for="atDate">Assign date</label><input type="date" class="text-input" id="atDate"></div>
+          <div class="field" style="margin:0"><label class="field-label">Trailer <span class="required">*</span></label><div class="dv-pickrow"><div id="atTrailer"></div><button type="button" class="dv-plus" id="atPlus" aria-label="Add a new trailer" data-tip="Add a trailer"><i data-lucide="plus"></i></button></div></div>
+        </div>
+      </div>
+      <div class="dialog-foot has-note">
+        <span class="dialog-foot-note"><i data-lucide="user-round"></i> <span id="atNote"></span></span>
+        <div class="dialog-foot-actions"><button class="btn-outline" type="button" data-dialog-close>Cancel</button><button class="btn-primary" type="button" id="atSave">Assign</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Switch trailer ============ -->
+  <div class="dialog-overlay" id="dlgSwap" hidden>
+    <div class="dialog-panel dialog-wide" role="dialog" aria-modal="true" aria-labelledby="swTitle">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="swTitle">Switch trailer</h2>
+        <p class="dialog-desc">Drop the current trailer, then hook the next one.</p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body">
+        <ol class="dv-steps">
+          <li>
+            <span class="dv-step-n">1</span>
+            <div class="dv-step-b">
+              <h3>Drop the current trailer</h3>
+              <div class="dv-slot filled mini" id="swCur"></div>
+              <div class="field" style="margin:12.5px 0 0" id="swDropField"><label class="field-label" for="swDrop">Drop location <button type="button" class="link-btn dv-lbl-link" id="swCustom">Custom</button></label><select class="select-input" id="swDrop"></select></div>
+              <input type="text" class="text-input" id="swCustomIn" placeholder="Type an address or yard name" style="margin-top:12.5px" hidden aria-label="Custom drop location">
+            </div>
+          </li>
+          <li>
+            <span class="dv-step-n">2</span>
+            <div class="dv-step-b">
+              <h3>Hook the new trailer</h3>
+              <div class="dialog-row" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);margin:0">
+                <div class="field" style="margin:0"><label class="field-label" for="swDate">Assign date</label><input type="date" class="text-input" id="swDate"></div>
+                <div class="field" style="margin:0"><label class="field-label">New trailer <span class="required">*</span></label><div class="dv-pickrow"><div id="swNew"></div><button type="button" class="dv-plus" id="swPlus" aria-label="Add a new trailer" data-tip="Add a trailer"><i data-lucide="plus"></i></button></div></div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="dialog-foot has-note">
+        <span class="dialog-foot-note"><i data-lucide="user-round"></i> <span>Created by Christian Snead</span></span>
+        <div class="dialog-foot-actions"><button class="btn-outline" type="button" data-dialog-close>Cancel</button><button class="btn-primary" type="button" id="swSave">Drop &amp; assign</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Service warning ============ -->
+  <div class="dialog-overlay" id="dlgWarn" hidden>
+    <div class="dialog-panel" role="alertdialog" aria-modal="true" aria-labelledby="wnTitle">
+      <div class="dialog-head">
+        <h2 class="dialog-title"><span class="dv-warn-ic"><i data-lucide="triangle-alert"></i></span><span id="wnTitle">Trailer</span></h2>
+        <p class="dialog-desc">This trailer has maintenance flags. You can still assign it.</p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body"><ul class="kv dv-kv" id="wnRows"></ul></div>
+      <div class="dialog-foot"><div class="dialog-foot-actions"><button class="btn-outline" type="button" id="wnBack">Go back</button><button class="btn-primary" type="button" id="wnOk">OK, assign anyway</button></div></div>
+    </div>
+  </div>
+
+  <!-- ============ Assign / change truck ============ -->
+  <div class="dialog-overlay" id="dlgTruck" hidden>
+    <div class="dialog-panel dialog-wide" role="dialog" aria-modal="true" aria-labelledby="tkTitle">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="tkTitle">Assign truck</h2>
+        <p class="dialog-desc" id="tkDesc"></p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body">
+        <div class="dv-slot filled mini" id="tkCur" style="margin-bottom:16.25px" hidden></div>
+        <div class="dialog-row" style="grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);margin-bottom:0">
+          <div class="field" style="margin:0"><label class="field-label" for="tkDate">Assign date</label><input type="date" class="text-input" id="tkDate"></div>
+          <div class="field" style="margin:0"><label class="field-label">Truck <span class="required">*</span></label><div class="dv-pickrow"><div id="tkTruck"></div><button type="button" class="dv-plus" id="tkPlus" aria-label="Add a new truck" data-tip="Add a truck"><i data-lucide="plus"></i></button></div></div>
+        </div>
+      </div>
+      <div class="dialog-foot has-note">
+        <span class="dialog-foot-note"><i data-lucide="user-round"></i> <span id="tkNote"></span></span>
+        <div class="dialog-foot-actions"><button class="btn-outline" type="button" data-dialog-close>Cancel</button><button class="btn-primary" type="button" id="tkSave">Assign</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ Add unit on the fly ============ -->
+  <div class="dialog-overlay" id="dlgAddUnit" hidden>
+    <div class="dialog-panel" role="dialog" aria-modal="true" aria-labelledby="auTitle" style="z-index:1">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="auTitle">Add unit</h2>
+        <p class="dialog-desc" id="auDesc"></p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body">
+        <div class="dialog-field"><label class="field-label" for="auId">Unit number <span class="required">*</span></label><input type="text" class="text-input" id="auId" placeholder="e.g. V5310"></div>
+        <div class="dialog-row" style="margin-bottom:0">
+          <div class="field" style="margin:0"><label class="field-label" for="auType" id="auTypeLbl">Type</label><input type="text" class="text-input" id="auType"></div>
+          <div class="field" style="margin:0"><label class="field-label" for="auLoc">Location</label><input type="text" class="text-input" id="auLoc"></div>
+        </div>
+      </div>
+      <div class="dialog-foot"><div class="dialog-foot-actions"><button class="btn-outline" type="button" data-dialog-close>Cancel</button><button class="btn-primary" type="button" id="auSave">Add unit</button></div></div>
+    </div>
+  </div>
+
+  <!-- ============ HOS recap ============ -->
+  <div class="dialog-overlay" id="dlgRecap" hidden>
+    <div class="dialog-panel dialog-wide" role="dialog" aria-modal="true" aria-labelledby="rcTitle" style="max-width:775px">
+      <div class="dialog-head">
+        <h2 class="dialog-title" id="rcTitle">HOS recap schedule</h2>
+        <p class="dialog-desc">70-hour / 8-day cycle. Hours worked eight days ago return to the clock each midnight.</p>
+        <button type="button" class="dialog-close" data-dialog-close aria-label="Close"><i data-lucide="x"></i></button>
+      </div>
+      <div class="dialog-body" id="rcBody"></div>
+      <div class="dialog-foot"><div class="dialog-foot-actions"><button class="btn-outline" type="button" data-dialog-close>Close</button></div></div>
+    </div>
+  </div>
